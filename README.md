@@ -6,10 +6,10 @@ This repository contains the Laserzentrale notebook setup.
 
 For a high-available setup we use 2 notebooks for our lasershows.
 
-| Name             | Function | IP-Address |
-| ---------------- | -------- | ---------- |
-| laserzentrale-01 | Active   | 10.0.0.1   |
-| laserzentrale-02 | Backup   | 10.0.0.2   |
+| Name            | Function | IP-Address |
+| --------------- | -------- | ---------- |
+| laserzentrale-1 | Active   | 10.0.0.1   |
+| laserzentrale-2 | Backup   | 10.0.0.2   |
 
 ## Tools
 
@@ -24,6 +24,10 @@ For a high-available setup we use 2 notebooks for our lasershows.
 - Reaper
 - Brave Browser
 - Tascam UH7000 Mixer Panel
+- Neovim
+- Git
+- RustDesk
+- LoopMidi
 
 ## Installation
 
