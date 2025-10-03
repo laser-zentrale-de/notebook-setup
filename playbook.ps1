@@ -245,6 +245,7 @@ $wingetSoftware = @(
     "Neovim.Neovim"
     "Git.Git"
     "RustDesk.RustDesk"
+    "LocalSend.LocalSend"
 )
 
 foreach ($software in $wingetSoftware)
