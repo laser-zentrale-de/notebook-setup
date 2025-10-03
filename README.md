@@ -37,3 +37,7 @@ For a high-available setup we use 2 notebooks for our lasershows.
 1. Download the source code zip file and extract it.
 1. Run the [playbook.cmd](./playbook.cmd) script as an administrator.
 1. Follow the [manual-doings](./manual-doings.md).
+
+## Credits
+
+- Thanks to [yahikii](https://github.com/yahikii) for the background wallpaper.

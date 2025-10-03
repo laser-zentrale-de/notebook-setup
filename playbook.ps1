@@ -3,8 +3,6 @@ $ErrorActionPreference = "Stop"
 $WarningPreference = "SilentlyContinue"
 $restartNeeded = $false
 
-Write-Host -ForegroundColor Gray "ScriptRoot: $PSScriptRoot"
-
 # Vars
 $user = "laserzentrale"
 
@@ -24,9 +22,11 @@ switch ($mode)
 {
     1 {
         $notebook = "laserzentrale-1".ToUpper()
+        $wallpaper = "wallpaper-active.png"
     }
     2 {
         $notebook = "laserzentrale-2".ToUpper()
+        $wallpaper = "wallpaper-backup.png"
     }
     3 {
         $notebook = Read-Host -Prompt "Type in the desired hostname"
@@ -39,7 +39,7 @@ switch ($mode)
 
 # Progress Bar
 $i = 0
-$g = 10
+$g = 11
 $activity = "Notebook Setup"
 
 # Create directories
@@ -54,6 +54,7 @@ $dirs = @(
     "C:\Users\$user\git"
     "C:\Users\$user\Desktop\Shows"
     "C:\Users\$user\AppData\Local\nvim"
+    "C:\Users\$user\Pictures\Laserzentrale"
 )
 
 foreach ($dir in $dirs) 
@@ -68,6 +69,16 @@ foreach ($dir in $dirs)
 # --------------------------
 # Windows Configuration
 # --------------------------
+
+# Copy Wallpaper
+$i++
+Write-Progress -Activity $activity -PercentComplete ($i/$g*100)
+
+$wallpaperPath = "C:\Users\$user\Pictures\Laserzentrale\$wallpaper"
+if(-not (Test-Path -Path $wallpaperPath))
+{
+    Copy-Item -Path "$PSScriptRoot\wallpaper\$wallpaper" -Destination $wallpaperPath -Force
+}
 
 # Set hostname
 $i++

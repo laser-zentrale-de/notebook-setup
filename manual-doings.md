@@ -6,6 +6,7 @@
 - Disable all notifications
 - Disable all Timeouts for Display, Screensaver etc
 - Disable all Actions for Notebook lid
+- Set the background and lockscreen wallpaper (Pictures\laserzentrale)
 
 ## Task-Manager
 
