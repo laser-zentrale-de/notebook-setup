@@ -34,5 +34,6 @@ For a high-available setup we use 2 notebooks for our lasershows.
 1. Create Windows ISO with [Rufus](https://rufus.ie/en/). Disable annoying Windows stuff and create local user account **laserzentrale**.
 1. Install Windows the normal way.
 1. Install [AtlasOS](https://atlasos.net/) as described here: [https://docs.atlasos.net/getting-started/installation/](https://docs.atlasos.net/getting-started/installation/)
-1. Run the [playbook](./playbook.ps1) powershell script.
-1. tbd.
+1. Download the source code zip file and extract it.
+1. Run the [playbook.cmd](./playbook.cmd) script as an administrator.
+1. Follow the [manual-doings](.\manual-doings.md).
