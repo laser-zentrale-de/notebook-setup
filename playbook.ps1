@@ -3,6 +3,8 @@ $ErrorActionPreference = "Stop"
 $WarningPreference = "SilentlyContinue"
 $restartNeeded = $false
 
+Write-Host -ForegroundColor Gray "ScriptRoot: $PSScriptRoot"
+
 # Vars
 $user = "laserzentrale"
 
@@ -256,11 +258,10 @@ foreach ($software in $wingetSoftware)
 }
 
 # Neovim
-#TODO: Copy neovim config file
 $nvimConfig = "C:\Users\$user\AppData\Local\nvim\init.lua"
 if (-not (Test-Path -Path $nvimConfig))
 {
-    # Copy-Item -Path 
+    Copy-Item -Path "$PSScriptRoot\nvim\init.lua" -Destination $nvimConfig -Force
 }
 
 # End Progress Bar
