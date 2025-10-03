@@ -251,7 +251,7 @@ foreach ($software in $wingetSoftware)
     if ($get -match "No installed package found") 
     {
         Write-Host -ForegroundColor Green "Install Winget software: $software"
-        winget install -e --silent --id $software | Out-Null
+        winget install -e --silent --id $software --accept-package-agreements --accept-source-agreements | Out-Null
     }
 }
 
