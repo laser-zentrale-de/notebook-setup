@@ -270,5 +270,6 @@ Write-Progress -Activity "Playbook" -Completed
 if ($restartNeeded)
 {
     Write-Host -ForegroundColor Green "Computer will restart in 10 seconds!"
-    Restart-Computer -Wait -Timeout 10 -Force 
+    Start-Sleep
+    Restart-Computer -Force
 }
