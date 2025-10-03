@@ -36,4 +36,4 @@ For a high-available setup we use 2 notebooks for our lasershows.
 1. Install [AtlasOS](https://atlasos.net/) as described here: [https://docs.atlasos.net/getting-started/installation/](https://docs.atlasos.net/getting-started/installation/)
 1. Download the source code zip file and extract it.
 1. Run the [playbook.cmd](./playbook.cmd) script as an administrator.
-1. Follow the [manual-doings](.\manual-doings.md).
+1. Follow the [manual-doings](./manual-doings.md).
