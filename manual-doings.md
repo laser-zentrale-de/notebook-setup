@@ -8,6 +8,10 @@
 - Disable all Actions for Notebook lid
 - Set the background and lockscreen wallpaper (Pictures\laserzentrale)
 
+## Custom scripts
+
+- Adjust the Desktop links to run as administrator for convenience
+
 ## Task-Manager
 
 - Autostart von Apps

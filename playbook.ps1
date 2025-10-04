@@ -39,7 +39,7 @@ switch ($mode)
 
 # Progress Bar
 $i = 0
-$g = 11
+$g = 13
 $activity = "Notebook Setup"
 
 # Create directories
@@ -52,6 +52,7 @@ $dirs = @(
     "C:\LGServer\Software"
     "C:\LGServer\Docs"
     "C:\Users\$user\git"
+    "C:\Users\$user\scripts"
     "C:\Users\$user\Desktop\Shows"
     "C:\Users\$user\AppData\Local\nvim"
     "C:\Users\$user\Pictures\Laserzentrale"
@@ -270,10 +271,42 @@ foreach ($software in $wingetSoftware)
 }
 
 # Neovim
+$i++
+Write-Progress -Activity $activity -PercentComplete ($i/$g*100)
+
 $nvimConfig = "C:\Users\$user\AppData\Local\nvim\init.lua"
 if (-not (Test-Path -Path $nvimConfig))
 {
     Copy-Item -Path "$PSScriptRoot\nvim\init.lua" -Destination $nvimConfig -Force
+}
+
+# Copy NetworkAdapter scripts to desktop
+$i++
+Write-Progress -Activity $activity -PercentComplete ($i/$g*100)
+
+$cmds = @(
+    "Set-DynamicIP"
+    "Set-StaticIP"
+    "Switch-Adapter"
+)
+
+$netScripts = "C:\Users\$user\scripts"
+
+foreach ($cmd in $cmds)
+{
+    if (-not (Test-Path -Path "$netScripts\$cmd.ps1"))
+    {
+        Write-Host -ForegroundColor Green "Copy: $PSScriptRoot\scripts\$cmd.{cmd,ps1} -> $netScripts\$cmd.{cmd,ps1}"
+        Copy-Item -Path "$PSScriptRoot\scripts\$cmd.cmd" -Destination "$netScripts\$cmd.cmd" -Force
+        Copy-Item -Path "$PSScriptRoot\scripts\$cmd.ps1" -Destination "$netScripts\$cmd.ps1" -Force
+
+        $wshShell = New-Object -COMObject WScript.Shell
+        $shortcut = $wshShell.CreateShortcut("C:\Users\$user\Desktop\$cmd.lnk")
+        $shortcut.TargetPath = "$netScripts\$cmd.cmd"
+
+        Write-Host -ForegroundColor Green "Set Desktop shortcut: $netScripts\$cmd.cmd -> $cmd.lnk"
+        $shortcut.Save()
+    }
 }
 
 # End Progress Bar
